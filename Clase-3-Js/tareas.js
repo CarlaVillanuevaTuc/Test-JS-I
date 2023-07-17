@@ -136,6 +136,13 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
+  resta= numero - Math.floor(numero);
+  if (resta===0 ) {
+    return true;
+  } else
+  {
+    return false;
+  }
 }
 
 function fizzBuzz(numero) {
@@ -143,7 +150,29 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
-}
+
+  var restoen3 = numero % 3;
+  var restoen5 = numero % 5;
+
+  if (restoen3===0 & restoen5===0)
+  {
+  return "fizzbuzz";
+  }
+    
+  if (restoen3===0 ) {
+      return "fizz";
+
+    } 
+      
+    if (restoen5===0 ) {
+        return "buzz";
+    }
+
+      return numero;
+   }
+   
+  
+
 
 function operadoresLogicos(num1, num2, num3) {
   //La función recibe tres números distintos. 
@@ -153,6 +182,25 @@ function operadoresLogicos(num1, num2, num3) {
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
   //Tu código:
+
+  if (num1===0 || num2===0 ||num3===0 ){
+    return  "Error";
+  }
+
+  if (num1 < 0 || num2 < 0||num3 < 0 ){
+    return  "Hay negativos";
+  }
+
+  if (num1 >  num2  &  num1 >  num3 ){
+    return  "Número 1 es mayor y positivo";
+  }
+
+  if (num3 >  num1  &  num3 >  num2 ){
+    return num3+1;
+  }
+  
+  return false;
+
 }
 
 function esVerdadero(valor) {
@@ -171,6 +219,15 @@ function esVerdadero(valor) {
 function tieneTresDigitos(numero) {
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí:
+  var numeroatring=numero.toString();
+
+  if(numeroatring.length === 3)
+  {
+    return true;
+  } else
+  {
+    return false;
+  }
 }
 
 // ---------- Puntos extra ----------
@@ -182,13 +239,39 @@ function esPrimo(numero) {
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
   // Tu código:
-}
+  var esprimo= true;
+
+  if (numero === 0 || numero === 1 )
+  {
+    return false;
+  }
+    for (var i = 2; i < numero; i++) {
+    
+         cociente= numero /i ;
+        /*si el cociente en un entero la division es exacta y no es primo*/
+        
+          if (esEntero(cociente) ===true) {
+            esprimo= false;
+          }
+    
+   
+    }
+  return esprimo;
+} 
+
 
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
   //Tu código:
+  let i = 0;
+  let resultado=numero;
+  do {
+    i = i + 1;
+    resultado = resultado + 5;
+  } while (i < 8);
+  return resultado;
 }
 
 // No modificar nada debajo de esta línea, sino no correrán los test.
